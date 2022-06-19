@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:go_router/go_router.dart';
 import 'package:liberary_project/providers/books_provider.dart';
 import 'package:liberary_project/widgets/book_tile.dart';
 import 'package:provider/provider.dart';
@@ -35,10 +36,16 @@ class HomePage extends StatelessWidget {
               ),
             ),
             //   ],
-            // ),
             ElevatedButton(
                 onPressed: () {
-                  context.read<BooksProvider>().searchBook(searchControler.text);
+                  context.push("/w");
+                },
+                child: const Text("Add New Book")),
+            ElevatedButton(
+                onPressed: () {
+                  context
+                      .read<BooksProvider>()
+                      .searchBook(searchControler.text.toLowerCase());
                 },
                 child: const Text("Search")),
             Expanded(

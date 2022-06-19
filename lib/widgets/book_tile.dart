@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:liberary_project/models/books.dart';
 import 'dart:math';
 
+import 'package:liberary_project/providers/books_provider.dart';
+import 'package:provider/provider.dart';
+
 class BookTile extends StatelessWidget {
   final Books book;
   const BookTile({Key? key, required this.book}) : super(key: key);
@@ -64,7 +67,11 @@ class BookTile extends StatelessWidget {
                         width: 70,
                         height: 30,
                         child: ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            context
+                                .read<BooksProvider>()
+                                .borrowBook(id: book.id);
+                          },
                           child: const Text(
                             "Borrow",
                             style: TextStyle(fontSize: 11),
