@@ -74,4 +74,14 @@ class BooksProvider extends ChangeNotifier {
         available: false,
         borrowedBy: [5]),
   ];
+
+  void searchBook(controller) {
+    List<Books> filteredList = books
+        .where((element) =>
+            element.title.contains(controller.toLowrCase()))
+        .toList();
+    books = filteredList;
+    print(books);
+    // notifyListeners();
+  }
 }
