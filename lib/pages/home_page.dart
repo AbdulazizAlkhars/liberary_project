@@ -23,6 +23,7 @@ class _HomePageState extends State<HomePage> {
 
     return Scaffold(
         appBar: AppBar(
+          backgroundColor: Color.fromRGBO(53, 66, 89, 10),
           title: const Text("Librarian"),
           leading: IconButton(
             icon: const Icon(Icons.person),
@@ -45,23 +46,27 @@ class _HomePageState extends State<HomePage> {
           children: [
             // Row(
             //   children: [
+            Image.asset("assets/images/books.png"),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: TextField(
                 controller: searchControler,
                 onChanged: search,
                 decoration: InputDecoration(
+                  // filled: true,
+                  // fillColor: const Color.fromRGBO(236, 229, 199, 10),
                   hintText: 'Search by title or genre',
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20),
+                  hintStyle: TextStyle(color: Color.fromRGBO(53, 66, 89, 10)),
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
                     borderSide: const BorderSide(
-                      width: 1,
-                    ),
+                        width: 2, color: Color.fromRGBO(236, 229, 199, 10)),
                   ),
                 ),
               ),
             ),
             //   ],
+
             Expanded(
               child: ListView.builder(
                   itemCount: context.watch<BooksProvider>().books.length,

@@ -13,12 +13,17 @@ class MemberTile extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(left: 8.0, right: 8.0),
       child: Card(
+        color: Color.fromARGB(255, 234, 230, 213),
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text("${member.id}- ${member.firstName} ${member.lastName}"),
+              Text("${member.id}- ${member.firstName} ${member.lastName}",
+                  style: const TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold,
+                      color: Color.fromARGB(246, 34, 53, 85))),
               Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: Column(
@@ -31,7 +36,7 @@ class MemberTile extends StatelessWidget {
                             text: "Curently Borrowing: ",
                             style: TextStyle(
                                 fontSize: 12,
-                                color: Color.fromARGB(255, 0, 0, 0)),
+                                color: Color.fromRGBO(53, 66, 89, 10)),
                           ),
                           TextSpan(
                             text: context
@@ -41,7 +46,7 @@ class MemberTile extends StatelessWidget {
                                 .toString(),
                             style: const TextStyle(
                                 fontSize: 12,
-                                color: Color.fromARGB(255, 126, 126, 126)),
+                                color: Color.fromRGBO(53, 66, 89, 10)),
                           ),
                         ],
                       ),
@@ -55,13 +60,13 @@ class MemberTile extends StatelessWidget {
                               text: "MemberSip: ",
                               style: TextStyle(
                                   fontSize: 12,
-                                  color: Color.fromARGB(255, 0, 0, 0)),
+                                  color: Color.fromRGBO(53, 66, 89, 10)),
                             ),
                             TextSpan(
                               text: member.membership,
                               style: const TextStyle(
                                   fontSize: 12,
-                                  color: Color.fromARGB(255, 126, 126, 126)),
+                                  color: Color.fromRGBO(53, 66, 89, 10)),
                             ),
                           ],
                         ),

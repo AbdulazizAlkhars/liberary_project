@@ -11,6 +11,7 @@ class Members extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Color.fromRGBO(53, 66, 89, 10),
         title: const Text("Members"),
         actions: [
           IconButton(
@@ -29,6 +30,5 @@ class Members extends StatelessWidget {
                 member: context.watch<MemberProvider>().members[index]);
           }),
     );
-    ;
   }
 }

@@ -17,6 +17,7 @@ class AddMember extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Color.fromRGBO(53, 66, 89, 10),
         title: const Text("Librarian"),
       ),
       body: Column(children: [
@@ -27,11 +28,10 @@ class AddMember extends StatelessWidget {
             style: const TextStyle(fontSize: 12),
             decoration: InputDecoration(
               hintText: 'First Name',
-              border: OutlineInputBorder(
+              enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10),
                 borderSide: const BorderSide(
-                  width: 1,
-                ),
+                    width: 1, color: Color.fromRGBO(236, 229, 199, 10)),
               ),
             ),
           ),
@@ -42,12 +42,12 @@ class AddMember extends StatelessWidget {
               controller: lastName,
               style: const TextStyle(fontSize: 12),
               decoration: InputDecoration(
-                  hintText: 'Last Nmae',
-                  border: OutlineInputBorder(
+                  hintText: 'Last Name',
+                  enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
                       borderSide: const BorderSide(
-                        width: 1,
-                      )))),
+                          width: 1,
+                          color: Color.fromRGBO(236, 229, 199, 10))))),
         ),
         Padding(
           padding: const EdgeInsets.all(8.0),
@@ -56,11 +56,11 @@ class AddMember extends StatelessWidget {
               style: const TextStyle(fontSize: 12),
               decoration: InputDecoration(
                   hintText: 'Member Ship',
-                  border: OutlineInputBorder(
+                  enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
                       borderSide: const BorderSide(
-                        width: 1,
-                      )))),
+                          width: 1,
+                          color: Color.fromRGBO(236, 229, 199, 10))))),
         ),
         ElevatedButton(
             onPressed: () {
@@ -70,7 +70,9 @@ class AddMember extends StatelessWidget {
                   memberShip: memberShip.text);
               context.pop();
             },
-            child: const Text("Add New Member"))
+            child: const Text("Add New Member"),
+            style: ElevatedButton.styleFrom(
+                primary: Color.fromRGBO(205, 194, 174, 10)))
       ]),
     );
   }

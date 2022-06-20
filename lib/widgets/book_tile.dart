@@ -24,7 +24,7 @@ class BookTile extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(left: 8.0, right: 8.0),
       child: Card(
-          color: const Color.fromARGB(255, 233, 230, 230),
+          color: Color.fromARGB(255, 234, 230, 213),
           // color: colors[Random().nextInt(colors.length)],
           child: Padding(
             padding: const EdgeInsets.all(19.0),
@@ -36,7 +36,9 @@ class BookTile extends StatelessWidget {
                 children: [
                   Text("${book.id}- ${book.title}",
                       style: const TextStyle(
-                          fontSize: 15, fontWeight: FontWeight.bold)),
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold,
+                          color: Color.fromARGB(246, 34, 53, 85))),
                   Padding(
                     padding: const EdgeInsets.only(top: 8.0),
                     child: Row(
@@ -46,7 +48,7 @@ class BookTile extends StatelessWidget {
                           maxLines: 2,
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(
-                              color: Color.fromARGB(255, 0, 0, 0),
+                              color: Color.fromRGBO(53, 66, 89, 10),
                               fontSize: 12),
                         ),
                         Text(
@@ -54,7 +56,7 @@ class BookTile extends StatelessWidget {
                           maxLines: 2,
                           overflow: TextOverflow.ellipsis,
                           style: const TextStyle(
-                              color: Color.fromARGB(255, 126, 126, 126),
+                              color: Color.fromRGBO(53, 66, 89, 10),
                               fontSize: 12),
                         ),
                       ],
@@ -69,13 +71,13 @@ class BookTile extends StatelessWidget {
                             text: "Genre: ",
                             style: TextStyle(
                                 fontSize: 12,
-                                color: Color.fromARGB(255, 0, 0, 0)),
+                                color: Color.fromRGBO(53, 66, 89, 10)),
                           ),
                           TextSpan(
                             text: book.genre.join(', ').toString(),
                             style: const TextStyle(
                                 fontSize: 12,
-                                color: Color.fromARGB(255, 126, 126, 126)),
+                                color: Color.fromRGBO(53, 66, 89, 10)),
                           ),
                         ],
                       ),
@@ -88,7 +90,7 @@ class BookTile extends StatelessWidget {
                           text: "Borrowed By: ",
                           style: TextStyle(
                               fontSize: 12,
-                              color: Color.fromARGB(255, 0, 0, 0)),
+                              color: Color.fromRGBO(53, 66, 89, 10)),
                         ),
                         TextSpan(
                           text: context
@@ -98,7 +100,7 @@ class BookTile extends StatelessWidget {
                               .toString(),
                           style: const TextStyle(
                               fontSize: 12,
-                              color: Color.fromARGB(255, 126, 126, 126)),
+                              color: Color.fromRGBO(53, 66, 89, 10)),
                         ),
                       ],
                     ),
@@ -106,7 +108,7 @@ class BookTile extends StatelessWidget {
                   // Text(
                   //     "Borrowed By: ${context.watch<BooksProvider>().getMembersName(book.borrowedBy)}"),
                   const Divider(
-                    color: Colors.grey,
+                    color: Color.fromRGBO(53, 66, 89, 10),
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -128,7 +130,8 @@ class BookTile extends StatelessWidget {
                                     .toString()
                                 : "",
                             style: const TextStyle(
-                                fontSize: 12, color: Colors.black),
+                                fontSize: 12,
+                                color: Color.fromRGBO(53, 66, 89, 10)),
                           ),
                         ],
                       ),
@@ -145,6 +148,8 @@ class BookTile extends StatelessWidget {
                               book.available ? "Borrow" : "Return",
                               style: const TextStyle(fontSize: 11),
                             ),
+                            style: ElevatedButton.styleFrom(
+                                primary: Color.fromRGBO(205, 194, 174, 10)),
                           ))
                     ],
                   ),

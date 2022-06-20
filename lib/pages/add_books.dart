@@ -17,6 +17,7 @@ class AddBook extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Color.fromRGBO(53, 66, 89, 10),
         title: const Text("Librarian"),
       ),
       body: Column(children: [
@@ -27,11 +28,10 @@ class AddBook extends StatelessWidget {
             style: const TextStyle(fontSize: 12),
             decoration: InputDecoration(
               hintText: 'title',
-              border: OutlineInputBorder(
+              enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10),
                 borderSide: const BorderSide(
-                  width: 1,
-                ),
+                    width: 1, color: Color.fromRGBO(236, 229, 199, 10)),
               ),
             ),
           ),
@@ -43,11 +43,11 @@ class AddBook extends StatelessWidget {
               style: const TextStyle(fontSize: 12),
               decoration: InputDecoration(
                   hintText: 'Author',
-                  border: OutlineInputBorder(
+                  enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
                       borderSide: const BorderSide(
-                        width: 1,
-                      )))),
+                          width: 1,
+                          color: Color.fromRGBO(236, 229, 199, 10))))),
         ),
         Padding(
           padding: const EdgeInsets.all(8.0),
@@ -56,11 +56,11 @@ class AddBook extends StatelessWidget {
               style: const TextStyle(fontSize: 12),
               decoration: InputDecoration(
                   hintText: 'Genre',
-                  border: OutlineInputBorder(
+                  enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
                       borderSide: const BorderSide(
-                        width: 1,
-                      )))),
+                          width: 1,
+                          color: Color.fromRGBO(236, 229, 199, 10))))),
         ),
         ElevatedButton(
             onPressed: () {
@@ -70,7 +70,9 @@ class AddBook extends StatelessWidget {
                   genre: addGenre.text);
               context.pop();
             },
-            child: const Text("Add New Book"))
+            child: const Text("Add New Book"),
+            style: ElevatedButton.styleFrom(
+                primary: Color.fromRGBO(205, 194, 174, 10)))
       ]),
     );
   }
