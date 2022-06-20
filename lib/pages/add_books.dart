@@ -29,6 +29,11 @@ class AddBook extends StatelessWidget {
             style: const TextStyle(fontSize: 12),
             decoration: InputDecoration(
               hintText: 'title',
+              focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10),
+                borderSide: const BorderSide(
+                    width: 1, color: Color.fromRGBO(236, 229, 199, 10)),
+              ),
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10),
                 borderSide: const BorderSide(
@@ -44,6 +49,11 @@ class AddBook extends StatelessWidget {
               style: const TextStyle(fontSize: 12),
               decoration: InputDecoration(
                   hintText: 'Author',
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                    borderSide: const BorderSide(
+                        width: 1, color: Color.fromRGBO(236, 229, 199, 10)),
+                  ),
                   enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
                       borderSide: const BorderSide(
@@ -57,6 +67,11 @@ class AddBook extends StatelessWidget {
               style: const TextStyle(fontSize: 12),
               decoration: InputDecoration(
                   hintText: 'Genre',
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                    borderSide: const BorderSide(
+                        width: 1, color: Color.fromRGBO(236, 229, 199, 10)),
+                  ),
                   enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
                       borderSide: const BorderSide(

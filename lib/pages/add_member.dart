@@ -28,6 +28,11 @@ class AddMember extends StatelessWidget {
             style: const TextStyle(fontSize: 12),
             decoration: InputDecoration(
               hintText: 'First Name',
+              focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10),
+                borderSide: const BorderSide(
+                    width: 1, color: Color.fromRGBO(236, 229, 199, 10)),
+              ),
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10),
                 borderSide: const BorderSide(
@@ -43,6 +48,11 @@ class AddMember extends StatelessWidget {
               style: const TextStyle(fontSize: 12),
               decoration: InputDecoration(
                   hintText: 'Last Name',
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                    borderSide: const BorderSide(
+                        width: 1, color: Color.fromRGBO(236, 229, 199, 10)),
+                  ),
                   enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
                       borderSide: const BorderSide(
@@ -56,6 +66,11 @@ class AddMember extends StatelessWidget {
               style: const TextStyle(fontSize: 12),
               decoration: InputDecoration(
                   hintText: 'Member Ship',
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                    borderSide: const BorderSide(
+                        width: 1, color: Color.fromRGBO(236, 229, 199, 10)),
+                  ),
                   enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
                       borderSide: const BorderSide(

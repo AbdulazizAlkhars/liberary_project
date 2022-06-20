@@ -57,6 +57,11 @@ class _HomePageState extends State<HomePage> {
                   // fillColor: const Color.fromRGBO(236, 229, 199, 10),
                   hintText: 'Search by title or genre',
                   hintStyle: TextStyle(color: Color.fromRGBO(53, 66, 89, 10)),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                    borderSide: const BorderSide(
+                        width: 2, color: Color.fromRGBO(236, 229, 199, 10)),
+                  ),
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                     borderSide: const BorderSide(
