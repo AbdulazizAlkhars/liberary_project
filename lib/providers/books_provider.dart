@@ -2,13 +2,14 @@ import 'package:flutter/foundation.dart';
 import 'package:liberary_project/models/books.dart';
 
 class BooksProvider extends ChangeNotifier {
-  List<Books> books = Books.list;
-  void searchBook(controller) {
-    List<Books> filteredList = Books.list
+  
+  List<Books> books = [...Books.list];
+  void searchBook(String query) {
+    List<Books> filteredList = [...books]
         .where((element) =>
-            element.title.toLowerCase().contains(controller) ||
+            element.title.toLowerCase().contains(query) ||
             element.genre
-                .any((element) => element.toLowerCase().contains(controller)))
+                .any((element) => element.toLowerCase().contains(query)))
         .toList();
 
     books = filteredList;
@@ -35,7 +36,7 @@ class BooksProvider extends ChangeNotifier {
 
   List getBooksTitle(List currentlyBorrowed) {
     List<String> names = [];
-    for (Books book in Books.list) {
+    for (Books book in books) {
       if (currentlyBorrowed.any((element) => element == book.id)) {
         names.add(book.title);
       }

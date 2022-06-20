@@ -4,6 +4,8 @@ import 'package:liberary_project/providers/books_provider.dart';
 import 'package:liberary_project/widgets/book_tile.dart';
 import 'package:provider/provider.dart';
 
+import '../models/books.dart';
+
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
@@ -13,12 +15,16 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   var searchControler = TextEditingController();
+  String query = "";
   @override
   Widget build(BuildContext context) {
     void search(String query) {
-      context
-          .read<BooksProvider>()
-          .searchBook(searchControler.text.toLowerCase());
+      setState(() {
+        this.query = query;
+      });
+      // context
+      //     .read<BooksProvider>()
+      //     .searchBook(searchControler.text.toLowerCase());
     }
 
     return Scaffold(
@@ -74,13 +80,30 @@ class _HomePageState extends State<HomePage> {
 
             Expanded(
               child: ListView.builder(
-                  itemCount: context.watch<BooksProvider>().books.length,
+                  itemCount: query.isEmpty
+                      ? context.watch<BooksProvider>().books.length
+                      : searchBook(query).length,
                   itemBuilder: (BuildContext context, int index) {
                     return BookTile(
-                        book: context.watch<BooksProvider>().books[index]);
+                        book: query.isEmpty
+                            ? context.watch<BooksProvider>().books[index]
+                            : searchBook(query)[index]);
                   }),
             ),
           ],
         ));
+  }
+
+  List<Books> searchBook(String query) {
+    List<Books> filteredList = context
+        .watch<BooksProvider>()
+        .books
+        .where((element) =>
+            element.title.toLowerCase().contains(query) ||
+            element.genre
+                .any((element) => element.toLowerCase().contains(query)))
+        .toList();
+
+    return filteredList;
   }
 }
