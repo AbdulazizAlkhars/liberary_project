@@ -2,18 +2,18 @@ import 'package:flutter/material.dart';
 
 import 'package:go_router/go_router.dart';
 
-import 'package:liberary_project/providers/books_provider.dart';
+import 'package:liberary_project/providers/members_provider.dart';
 
 import 'package:provider/provider.dart';
 
-class AddBook extends StatelessWidget {
-  const AddBook({Key? key}) : super(key: key);
+class AddMember extends StatelessWidget {
+  const AddMember({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    var addTitle = TextEditingController();
-    var addAuthor = TextEditingController();
-    var addGenre = TextEditingController();
+    var firstName = TextEditingController();
+    var lastName = TextEditingController();
+    var memberShip = TextEditingController();
 
     return Scaffold(
       appBar: AppBar(
@@ -23,10 +23,10 @@ class AddBook extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.all(8.0),
           child: TextField(
-            controller: addTitle,
+            controller: firstName,
             style: const TextStyle(fontSize: 12),
             decoration: InputDecoration(
-              hintText: 'title',
+              hintText: 'First Name',
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10),
                 borderSide: const BorderSide(
@@ -39,10 +39,10 @@ class AddBook extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.all(8.0),
           child: TextField(
-              controller: addAuthor,
+              controller: lastName,
               style: const TextStyle(fontSize: 12),
               decoration: InputDecoration(
-                  hintText: 'Author',
+                  hintText: 'Last Nmae',
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
                       borderSide: const BorderSide(
@@ -52,10 +52,10 @@ class AddBook extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.all(8.0),
           child: TextField(
-              controller: addGenre,
+              controller: memberShip,
               style: const TextStyle(fontSize: 12),
               decoration: InputDecoration(
-                  hintText: 'Genre',
+                  hintText: 'Member Ship',
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
                       borderSide: const BorderSide(
@@ -64,13 +64,13 @@ class AddBook extends StatelessWidget {
         ),
         ElevatedButton(
             onPressed: () {
-              context.read<BooksProvider>().addBook(
-                  title: addTitle.text,
-                  author: addAuthor.text,
-                  genre: addGenre.text);
+              context.read<MemberProvider>().addMember(
+                  firstName: firstName.text,
+                  lastName: lastName.text,
+                  memberShip: memberShip.text);
               context.pop();
             },
-            child: const Text("Add New Book"))
+            child: const Text("Add New Member"))
       ]),
     );
   }

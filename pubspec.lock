@@ -7,7 +7,7 @@ packages:
       name: async
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.8.2"
+    version: "2.9.0"
   boolean_selector:
     dependency: transitive
     description:
@@ -79,6 +79,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  from_css_color:
+    dependency: "direct main"
+    description:
+      name: from_css_color
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.0"
   go_router:
     dependency: "direct main"
     description:

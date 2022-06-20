@@ -1,36 +1,33 @@
+import 'package:flutter/material.dart';
+import 'package:liberary_project/models/members.dart';
 import 'package:liberary_project/models/members.dart';
 
-class MemberProvider {
-  List<Member> members = [
-    Member(
-        id: 1,
-        firstName: "Aziz",
-        lastName: "AlSaffar",
-        currentlyBorrowedBooks: [3, 9],
-        membership: "gold"),
-    Member(
-        id: 2,
-        firstName: "Hashim",
-        lastName: "Behbehani",
-        currentlyBorrowedBooks: [5],
-        membership: "gold"),
-    Member(
-        id: 3,
-        firstName: "Alhamza",
-        lastName: "Abdulmonem",
-        currentlyBorrowedBooks: [1, 2],
-        membership: "silver"),
-    Member(
-        id: 4,
-        firstName: "Reem",
-        lastName: "AlHasawi",
-        currentlyBorrowedBooks: [],
-        membership: "platinum"),
-    Member(
-        id: 5,
-        firstName: "Laila",
-        lastName: "AlKandery",
-        currentlyBorrowedBooks: [10, 7, 8],
-        membership: "platinum"),
-  ];
+class MemberProvider extends ChangeNotifier {
+  List<Member> members = Member.members;
+  List getMembersName(List borrowedBy) {
+    List<String> names = [];
+    for (Member member in Member.members) {
+      if (borrowedBy.any((element) => element == member.id)) {
+        names.add("${member.firstName} ${member.lastName}");
+      }
+    }
+    return names;
+  }
+
+  String getMemberName(int borrowedBy) {
+    Member name =
+        Member.members.firstWhere((element) => element.id == borrowedBy);
+    return "${name.firstName} ${name.lastName}";
+  }
+
+  void addMember({required lastName, required firstName, required memberShip}) {
+    var item = Member(
+        id: members[members.length - 1].id + 1,
+        firstName: firstName,
+        lastName: lastName,
+        membership: memberShip);
+
+    members.add(item);
+    notifyListeners();
+  }
 }
