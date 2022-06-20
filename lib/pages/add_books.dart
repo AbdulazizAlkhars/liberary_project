@@ -15,81 +15,89 @@ class AddBook extends StatelessWidget {
     var addAuthor = TextEditingController();
     var addGenre = TextEditingController();
 
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Color.fromRGBO(53, 66, 89, 10),
-        title: const Text("Librarian"),
-      ),
-      body: Column(children: [
-        Image.asset("assets/images/books.png"),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: TextField(
-            controller: addTitle,
-            style: const TextStyle(fontSize: 12),
-            decoration: InputDecoration(
-              hintText: 'title',
-              focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10),
-                borderSide: const BorderSide(
-                    width: 1, color: Color.fromRGBO(236, 229, 199, 10)),
-              ),
-              enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10),
-                borderSide: const BorderSide(
-                    width: 1, color: Color.fromRGBO(236, 229, 199, 10)),
+    return Container(
+        constraints: BoxConstraints.expand(),
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage("assets/images/background.png"),
+              fit: BoxFit.cover),
+        ),
+        child: Scaffold(
+          backgroundColor: Colors.transparent,
+          appBar: AppBar(
+            backgroundColor: Color.fromRGBO(53, 66, 89, 10),
+            title: const Text("Librarian"),
+          ),
+          body: Column(children: [
+            Image.asset("assets/images/books.png"),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextField(
+                controller: addTitle,
+                // style: const TextStyle(fontSize: 12),
+                decoration: InputDecoration(
+                  hintText: 'title',
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                    borderSide: const BorderSide(
+                        width: 1, color: Color.fromRGBO(236, 229, 199, 10)),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                    borderSide: const BorderSide(
+                        width: 1, color: Color.fromRGBO(236, 229, 199, 10)),
+                  ),
+                ),
               ),
             ),
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: TextField(
-              controller: addAuthor,
-              style: const TextStyle(fontSize: 12),
-              decoration: InputDecoration(
-                  hintText: 'Author',
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
-                    borderSide: const BorderSide(
-                        width: 1, color: Color.fromRGBO(236, 229, 199, 10)),
-                  ),
-                  enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
-                      borderSide: const BorderSide(
-                          width: 1,
-                          color: Color.fromRGBO(236, 229, 199, 10))))),
-        ),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: TextField(
-              controller: addGenre,
-              style: const TextStyle(fontSize: 12),
-              decoration: InputDecoration(
-                  hintText: 'Genre',
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
-                    borderSide: const BorderSide(
-                        width: 1, color: Color.fromRGBO(236, 229, 199, 10)),
-                  ),
-                  enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
-                      borderSide: const BorderSide(
-                          width: 1,
-                          color: Color.fromRGBO(236, 229, 199, 10))))),
-        ),
-        ElevatedButton(
-            onPressed: () {
-              context.read<BooksProvider>().addBook(
-                  title: addTitle.text,
-                  author: addAuthor.text,
-                  genre: addGenre.text);
-              context.pop();
-            },
-            child: const Text("Add New Book"),
-            style: ElevatedButton.styleFrom(
-                primary: Color.fromRGBO(205, 194, 174, 10)))
-      ]),
-    );
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextField(
+                  controller: addAuthor,
+                  // style: const TextStyle(fontSize: 12),
+                  decoration: InputDecoration(
+                      hintText: 'Author',
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: const BorderSide(
+                            width: 1, color: Color.fromRGBO(236, 229, 199, 10)),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                          borderSide: const BorderSide(
+                              width: 1,
+                              color: Color.fromRGBO(236, 229, 199, 10))))),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextField(
+                  controller: addGenre,
+                  // style: const TextStyle(fontSize: 12),
+                  decoration: InputDecoration(
+                      hintText: 'Genre',
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: const BorderSide(
+                            width: 1, color: Color.fromRGBO(236, 229, 199, 10)),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                          borderSide: const BorderSide(
+                              width: 1,
+                              color: Color.fromRGBO(236, 229, 199, 10))))),
+            ),
+            ElevatedButton(
+                onPressed: () {
+                  context.read<BooksProvider>().addBook(
+                      title: addTitle.text,
+                      author: addAuthor.text,
+                      genre: addGenre.text);
+                  context.pop();
+                },
+                child: const Text("Add New Book"),
+                style: ElevatedButton.styleFrom(
+                    primary: Color.fromRGBO(205, 194, 174, 10)))
+          ]),
+        ));
   }
 }

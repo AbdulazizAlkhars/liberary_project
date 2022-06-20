@@ -2,7 +2,6 @@ import 'package:flutter/foundation.dart';
 import 'package:liberary_project/models/books.dart';
 
 class BooksProvider extends ChangeNotifier {
-  
   List<Books> books = [...Books.list];
   void searchBook(String query) {
     List<Books> filteredList = [...books]
