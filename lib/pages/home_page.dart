@@ -46,7 +46,7 @@ class _HomePageState extends State<HomePage> {
           children: [
             // Row(
             //   children: [
-            Image.asset("assets/images/books.png"),
+            Image.asset("assets/images/student.png"),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: TextField(

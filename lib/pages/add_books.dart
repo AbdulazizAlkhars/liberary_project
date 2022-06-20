@@ -21,6 +21,7 @@ class AddBook extends StatelessWidget {
         title: const Text("Librarian"),
       ),
       body: Column(children: [
+        Image.asset("assets/images/books.png"),
         Padding(
           padding: const EdgeInsets.all(8.0),
           child: TextField(
